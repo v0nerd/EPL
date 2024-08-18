@@ -203,6 +203,7 @@ def get_team_sorted_val(team_name:str):
     # may make that assumption hence some smarts to order necessary. ###
 
     team_vals = {
+    	'Ipswich':41,
         'Arsenal':40,
         'Chelsea':39,
         'Manchester United':38,
