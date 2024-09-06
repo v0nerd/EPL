@@ -31,7 +31,7 @@ def get_data(more_data:bool) -> pd.DataFrame:
                 match_input = {}
                 index = match_url.split('/')[-1].split('-Premier-League')[0]
                 match_input['HT-AT-DATE'] = index
-                html = requests.get(match_url)
+                html = requests.get(match_url, timeout=60)
                 soup = BeautifulSoup(html.text, 'html.parser')
 
                 ## Get Scores and calculate GD ## 
