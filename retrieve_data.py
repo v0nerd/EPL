@@ -4,10 +4,10 @@ from typing import Tuple
 import ScraperFC
 from datetime import datetime
 from bs4 import BeautifulSoup
-import requests
 import os
 import openpyxl
 from sklearn.preprocessing import MinMaxScaler
+from security import safe_requests
 
 def get_data(more_data:bool) -> pd.DataFrame:       
     
@@ -31,7 +31,7 @@ def get_data(more_data:bool) -> pd.DataFrame:
                 match_input = {}
                 index = match_url.split('/')[-1].split('-Premier-League')[0]
                 match_input['HT-AT-DATE'] = index
-                html = requests.get(match_url)
+                html = safe_requests.get(match_url)
                 soup = BeautifulSoup(html.text, 'html.parser')
 
                 ## Get Scores and calculate GD ## 
